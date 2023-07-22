@@ -3,3 +3,18 @@
   flex-direction: row;
   gap: 20px;
 }
+
+#try {
+  visibility: hidden;
+}
+
+.rock {
+  visibility: visible;
+}
+
+.paper {
+  visibility: visible;
+}
+.scissors {
+  visibility: visible;
+}

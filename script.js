@@ -1,5 +1,6 @@
 let PlayerScore = 0;
 let ComputerScore = 0;
+document.getElementById("try").style.visibility = "hidden";
 //write the rounds
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == "rock" && computerSelection == "scissors") {
@@ -33,23 +34,27 @@ function getComputerChoice() {
 //decide who is winner
 
 document.addEventListener("click", (img) => {
-  let elementClass = img.target.className;
+  let elementClass = img.target.id;
   let playerSelection = elementClass;
   const computerSelection = getComputerChoice();
   console.log(playRound(playerSelection, computerSelection));
   document.querySelector(".plascore").textContent = PlayerScore;
   document.querySelector(".compscore").textContent = ComputerScore;
   if (PlayerScore == 5 || ComputerScore == 5) {
+    document.getElementById("rock").style.visibility = "hidden";
+    document.getElementById("paper").style.visibility = "hidden";
+    document.getElementById("scissors").style.visibility = "hidden";
+    document.getElementById("try").style.visibility = "visible";
     if (PlayerScore == 5) {
       document.getElementById("text").textContent = "You've won";
-      PlayerScore = 0;
-      ComputerScore = 0;
     } else if (ComputerScore == 5) {
       document.getElementById("text").textContent = "Computer won";
-      PlayerScore = 0;
-      ComputerScore = 0;
     }
   }
 });
-
+const reload = document.getElementById("try");
+reload.addEventListener("click", reloadpage);
+function reloadpage() {
+  location.reload();
+}
 // print out who is winner
